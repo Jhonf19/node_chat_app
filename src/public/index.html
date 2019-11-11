@@ -14,15 +14,35 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-light bg-light">
-        <a class="navbar-brand" href="#">Chat JF</a>
+    <nav class="navbar navbar-light bg-light justify-content-center bg-dark">
+        <h2 class="text-light">Chat JF</h2>
     </nav>
 
+
+
     <div class="container">
-        <div class="row">
+        <div id="content_log" class="row">
             <div class="col-md-6 offset-md-3 mt-5">
                 <div class="card">
-                    <div class="card-header">Titulo</div>
+                    <div class="card-header text-center">Login</div>
+                    <div class="card-body">
+                        <div id="user-error"></div>
+                        <form id="log-form">
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="username" placeholder="Crea un nombre de usuario" autofocus>
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" class="btn btn-info btn-block" value="Registar">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div  id="content_chat" class="row">
+            <div class="col-md-6 offset-md-3 mt-5">
+                <div class="card">
+                    <div class="card-header">Mensajes</div>
                     <div id="chat" class="card-body">
 
                     </div>
@@ -40,9 +60,16 @@
 
                 </div>
             </div>
+            <div class="col-md-3 mt-5">
+                <div class="card">
+                    <div class="card-header">Usuarios</div>
+                    <div class="card-body">
+                        <ul id="usernames"></ul>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-    <p>indx</p>
 
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
