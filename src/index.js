@@ -24,7 +24,7 @@ mongoose.connect(process.env.DB_LOCAL || process.env.DB_URL, {
 
 //server
 const server = app.listen(app.get('port'), ()=>{
-    console.log('server on port', app.get('port'));
+    console.log('server started on port', app.get('port'));
 })
 
 
