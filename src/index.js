@@ -19,7 +19,7 @@ mongoose.connect(process.env.DB_LOCAL || process.env.DB_URL, {
     useUnifiedTopology: true,
     useNewUrlParser: true
 })
-.then(db => console.log('DB ok'))
+.then(db => console.log('DB init'))
 .catch(err => console.log(err));
 
 //server
