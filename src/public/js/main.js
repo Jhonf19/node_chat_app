@@ -63,4 +63,17 @@ $(function () {
         chat.append(`<p><b>@${data.user}:<b> ${data.msgp}</p>`);
     })
 
+    socket.on('load all msgs', msgs => {
+        for (let i = 0; i < msgs.length; i++) {
+            showMsgs(msgs[i])
+            
+        }
+    })
+
+    function showMsgs(params) {
+        chat.append(`<b>${params.user}:</b> ${params.msg}<br><hr>`);
+    }
+
+   
+
 })
