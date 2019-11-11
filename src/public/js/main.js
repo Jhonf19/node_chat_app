@@ -20,6 +20,7 @@ $(function () {
                 $('#content_log').hide();
                 $('#content_chat').show();
                 $('#content_chat').css('display','flex');
+                $('#User').text(data);
             } else {
                 userError.html(`
                     <div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -39,7 +40,9 @@ $(function () {
     //events
     formMsg.submit(e => {
         e.preventDefault();
-        socket.emit('send msg', msg.val());
+        socket.emit('send msg', msg.val(), data =>{
+            chat.append(`<p>${data}</p>`);
+        });
         msg.val('');
     });
 
@@ -47,13 +50,17 @@ $(function () {
         chat.append(`<b>${msg.user}:</b> ${msg.msg}<br><hr>`);
     })
 
-    socket.on('usernames', data => {
+    socket.on('users', data => {
         let html = '';
         for (let i = 0; i < data.length; i++) {
             html += ` <li>${data[i]}</li>`;
             
         }
         userNames.html(html);
+    })
+
+    socket.on('private_msg', data => {
+        chat.append(`<p><b>@${data.user}:<b> ${data.msgp}</p>`);
     })
 
 })
